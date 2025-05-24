@@ -6,9 +6,6 @@ public class Solution {
         String str = sc.next();
         int n = sc.nextInt();
         String newStr = "";
-        for(int i=0;i<n;i++){
-            newStr += str;
-        }
-        System.out.println(newStr);
+        System.out.println(str.repeat(n));
     }
 }
