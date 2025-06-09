@@ -2,7 +2,7 @@
 //k를 입력받는다
 //고장난 신호등을 입력받는다
 //최소 min = 0;
-// 그냥 배얄  0 0 0 0 0 0 0 0 0 0
+// 그냥 배얄  0 0 0 1 1 0 0 0 0 0
 //누적합 배열
 // 고장난 신호등 자리 1을 채운다
 //슬라이딩 윈도우 를 하면서
@@ -24,8 +24,8 @@ public class Main {
         for (int i = 0; i < B; i++) {
             int wrong = sc.nextInt();
             wrongArray[wrong - 1] = 1;
-
         }
+        S[0] = wrongArray[0];
         for (int i = 1; i < N; i++) {
             S[i] = S[i - 1] + wrongArray[i];
         }
