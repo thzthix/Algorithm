@@ -1,0 +1,8 @@
+-- 코드를 입력하세요
+SELECT NAME
+FROM (
+    SELECT NAME, RANK() OVER(ORDER BY DATETIME ASC) as rk
+    FROM ANIMAL_INS
+) t
+WHERE rk = 1;
+
