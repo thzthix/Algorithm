@@ -30,13 +30,11 @@ def solution(progresses, speeds):
     for i in range(len(progresses)):
         q.append(math.ceil((100-progresses[i])/speeds[i]))
     while q:
-        today = q[0]
-        count = 0
-        while(today>=q[0]):
+        first_deploy_day = q.popleft()
+        count = 1
+        while q and q[0]<= first_deploy_day:
             q.popleft()
             count +=1
-            if not q:
-                break
         answer.append(count)
     return answer
         
