@@ -1,17 +1,23 @@
-import math
-#[3,3,3,1,1]
+def quick_sort(a):
+    if len(a) <= 1:
+        return a
+    left = []
+    right = []
+    pivots = []
+    piv = a[0]
+    for i in a:
+        if i < piv:
+            left.append(i)
+        elif i > piv:
+            right.append(i)
+        else:
+            pivots.append(i)
+    return quick_sort(left) + pivots + quick_sort(right)
 def solution(citations):
-    #배열을 sort해서
-    #가장 큰 값부터 찾는다.
-    #그 값 이상인게 h이상, 아닌게 h이하라면 h-index
-    citations.sort(reverse = True)
-    length = len(citations)
-    for i in range(length):
-        if citations[i] <= i:
+    sorted_arr = list(reversed(quick_sort(citations)))
+    for i in range(len(sorted_arr)):
+        if sorted_arr[i] < i+1:
             return i
-        
-    return length
-        
-        
-        
+    return len(sorted_arr)
+     #6 5 3 1 0
     
