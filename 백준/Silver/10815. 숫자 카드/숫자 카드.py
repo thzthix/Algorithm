@@ -1,13 +1,8 @@
 import sys
 input = sys.stdin.readline
 N = int(input())
-cards = set(list(map(int, input().split())))
+cards = set(map(int, input().split()))
 M = int(input())
 numbers = list(map(int, input().split()))
-answers = []
-for n in numbers:
-    if n in cards:
-        answers.append(1)
-    else:
-        answers.append(0)
+answers = [1 if n in cards else 0 for n in numbers]
 print(" ".join(map(str, answers)))
