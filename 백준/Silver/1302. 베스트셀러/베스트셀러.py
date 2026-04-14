@@ -1,18 +1,11 @@
 import sys
+from collections import Counter
 input = sys.stdin.readline
-books = dict()
-N = int(input())
-for _ in range(N):
-    name = input()
-    if name in books:
-        books[name] += 1
-    else:
-        books[name] = 1
 
-max_val = max(books.values())
-best_sellers = []
-for name, value in books.items():
-    if value == max_val:
-        best_sellers.append(name)
-best_sellers.sort()
-print(best_sellers[0])
+N = int(input())
+names = []
+for _ in range(N):
+    names.append(input())
+counts = Counter(names)
+ans = sorted(counts.items(), key = lambda x: (-x[1], x[0]))
+print(ans[0][0])
