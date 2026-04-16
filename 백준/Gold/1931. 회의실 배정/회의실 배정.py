@@ -5,16 +5,15 @@ meetings = []
 N = int(input())
 
 for _ in range(N):
-    start, end = map(int, input().split())
-    meetings.append((end, start))
+    meetings.append( tuple(map(int, input().split())))
 
-meetings.sort()
+meetings.sort(key = lambda x: (x[1], x[0]))
 
 t = 0
 answer = 0
 
-for end, start in meetings:
-    if t<=start:
+for start, end in meetings:
+    if t<= start:
         answer += 1
         t = end
 print(answer)
